@@ -1,0 +1,31 @@
+control_freq: 50
+name: unitree_go2_robot_lab_rough
+trusted: true
+tailored: go2
+
+actuator:
+  type: position
+  Kp: 25.0
+  Kd: 0.5
+  bias: [ 
+    0.0, 0.8, -1.5,
+    0.0, 0.8, -1.5,
+    0.0, 0.8, -1.5,
+    0.0, 0.8, -1.5,
+  ]
+  scale: [
+    0.125, 0.25, 0.25,
+    0.125, 0.25, 0.25,
+    0.125, 0.25, 0.25,
+    0.125, 0.25, 0.25,
+  ]
+
+modules:
+  - field_scaling
+  - actor
+
+run:
+  task: RobotLab-Isaac-Velocity-Rough-Unitree-Go2-v0
+  name: v2.3.2
+  time: 2026-02-09-00-00-00
+  iter: 20000

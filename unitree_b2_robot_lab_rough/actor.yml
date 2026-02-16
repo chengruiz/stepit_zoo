@@ -1,0 +1,18 @@
+input_field:
+  observation:
+  - { name: ang_vel,      size: 3  }
+  - { name: gravity,      size: 3  }
+  - { name: cmd_vel,      size: 3  }
+  - { name: joint_pos,    size: 12 }
+  - { name: joint_vel,    size: 12 }
+  - { name: last_action,  size: 12 }
+
+output_field:
+- { name: action, size: 12 }
+
+assert_all_finite: true
+run:
+  task: RobotLab-Isaac-Velocity-Rough-Unitree-B2-v0
+  name: v2.3.2
+  time: 2026-02-09-00-00-00
+  iter: 20000
