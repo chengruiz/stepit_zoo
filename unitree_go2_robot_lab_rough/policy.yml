@@ -21,7 +21,7 @@ actuator:
   ]
 
 modules:
-  - field_scaling
+  - field_ops
   - actor
 
 run:
