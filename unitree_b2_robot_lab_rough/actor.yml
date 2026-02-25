@@ -1,4 +1,4 @@
-input_field:
+input_fields:
   observation:
   - { name: ang_vel,      size: 3  }
   - { name: gravity,      size: 3  }
@@ -7,8 +7,8 @@ input_field:
   - { name: joint_vel,    size: 12 }
   - { name: last_action,  size: 12 }
 
-output_field:
-- { name: action, size: 12 }
+output_fields:
+  action: {}
 
 assert_all_finite: true
 run:

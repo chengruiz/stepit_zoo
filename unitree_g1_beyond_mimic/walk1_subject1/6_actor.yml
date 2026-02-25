@@ -1,0 +1,26 @@
+input_field:
+  obs:
+  - { name: target_joint_pos,  size: 29 }
+  - { name: target_joint_vel,  size: 29 }
+  - { name: relative_ori_6d,   size: 6  }
+  - { name: ang_vel,           size: 3  }
+  - { name: joint_pos,         size: 29 }
+  - { name: joint_vel,         size: 29 }
+  - { name: last_action,       size: 29 }
+  time_step: {}
+
+output_field:
+  actions:        { name: action }
+  joint_pos:      { name: _null1 }
+  joint_vel:      { name: _null2 }
+  body_pos_w:     { name: _null3 }
+  body_quat_w:    { name: _null4 }
+  body_lin_vel_w: { name: _null5 }
+  body_ang_vel_w: { name: _null6 }
+
+assert_all_finite: true
+run:
+  task: beyond_mimic-walk1_subject1
+  name: walk1_subject1
+  time: 2026-02-16-00-00-00
+  iter: 30000

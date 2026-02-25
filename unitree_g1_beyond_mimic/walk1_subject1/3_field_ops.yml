@@ -1,0 +1,41 @@
+ops:
+  - type: affine
+    field: joint_pos
+    mean:
+      - -0.312
+      - -0.312
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.669
+      - 0.669
+      - 0.2
+      - 0.2
+      - -0.363
+      - -0.363
+      - 0.2
+      - -0.2
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.6
+      - 0.6
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+  - type: copy
+    source: whole_body_global_ori
+    target: current_torso_ori
+  - type: slice
+    source: whole_body_target_ori
+    target: target_torso_ori
+    start: 36
+    end: 40

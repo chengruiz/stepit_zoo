@@ -1,0 +1,9 @@
+urdf_filename: "g1.urdf"
+
+body_names:
+  - "torso_link"
+
+anchor_body: "pelvis"
+
+anchor_global_pos_field: "base_global_pos"
+anchor_global_ori_field: "base_global_ori"

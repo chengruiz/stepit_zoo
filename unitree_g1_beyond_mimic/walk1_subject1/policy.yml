@@ -1,0 +1,51 @@
+control_freq: 50
+name: beyond_mimic_walk1_subject1
+trusted: true
+tailored: g1_bfs
+
+actuator:
+  type: position
+  parameters:
+  - { Kp: 40.179, Kd: 2.558, bias: -0.312, scale: 0.548, }  # left_hip_pitch_joint
+  - { Kp: 40.179, Kd: 2.558, bias: -0.312, scale: 0.548, }  # right_hip_pitch_joint
+  - { Kp: 40.179, Kd: 2.558, bias: 0.000,  scale: 0.548, }  # waist_yaw_joint
+  - { Kp: 99.098, Kd: 6.309, bias: 0.000,  scale: 0.351, }  # left_hip_roll_joint
+  - { Kp: 99.098, Kd: 6.309, bias: 0.000,  scale: 0.351, }  # right_hip_roll_joint
+  - { Kp: 28.501, Kd: 1.814, bias: 0.000,  scale: 0.439, }  # waist_roll_joint
+  - { Kp: 40.179, Kd: 2.558, bias: 0.000,  scale: 0.548, }  # left_hip_yaw_joint
+  - { Kp: 40.179, Kd: 2.558, bias: 0.000,  scale: 0.548, }  # right_hip_yaw_joint
+  - { Kp: 28.501, Kd: 1.814, bias: 0.000,  scale: 0.439, }  # waist_pitch_joint
+  - { Kp: 99.098, Kd: 6.309, bias: 0.669,  scale: 0.351, }  # left_knee_joint
+  - { Kp: 99.098, Kd: 6.309, bias: 0.669,  scale: 0.351, }  # right_knee_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.200,  scale: 0.439, }  # left_shoulder_pitch_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.200,  scale: 0.439, }  # right_shoulder_pitch_joint
+  - { Kp: 28.501, Kd: 1.814, bias: -0.363, scale: 0.439, }  # left_ankle_pitch_joint
+  - { Kp: 28.501, Kd: 1.814, bias: -0.363, scale: 0.439, }  # right_ankle_pitch_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.200,  scale: 0.439, }  # left_shoulder_roll_joint
+  - { Kp: 14.251, Kd: 0.907, bias: -0.200, scale: 0.439, }  # right_shoulder_roll_joint
+  - { Kp: 28.501, Kd: 1.814, bias: 0.000,  scale: 0.439, }  # left_ankle_roll_joint
+  - { Kp: 28.501, Kd: 1.814, bias: 0.000,  scale: 0.439, }  # right_ankle_roll_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.000,  scale: 0.439, }  # left_shoulder_yaw_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.000,  scale: 0.439, }  # right_shoulder_yaw_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.600,  scale: 0.439, }  # left_elbow_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.600,  scale: 0.439, }  # right_elbow_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.000,  scale: 0.439, }  # left_wrist_roll_joint
+  - { Kp: 14.251, Kd: 0.907, bias: 0.000,  scale: 0.439, }  # right_wrist_roll_joint
+  - { Kp: 16.778, Kd: 1.068, bias: 0.000,  scale: 0.075, }  # left_wrist_pitch_joint
+  - { Kp: 16.778, Kd: 1.068, bias: 0.000,  scale: 0.075, }  # right_wrist_pitch_joint
+  - { Kp: 16.778, Kd: 1.068, bias: 0.000,  scale: 0.075, }  # left_wrist_yaw_joint
+  - { Kp: 16.778, Kd: 1.068, bias: 0.000,  scale: 0.075, }  # right_wrist_yaw_joint
+
+module:
+  - 1_forward_kinematics@forward_kinematics  # updates whole-body local / global pose
+  - 2_motion_trajectory@motion_trajectory    # reads motion trajectory from npz file
+  - 3_field_ops@field_ops                    # normalizes joint positions and get observations
+  - 4_motion_alignment@motion_alignment      # aligns the motion frame with the robot frame
+  - 5_relative_pose/ori@relative_ori         # computes the relative orientation between target and current values
+  - 6_actor@actor                            # infers the action from current observations
+
+run:
+  task: beyond_mimic-walk1_subject1
+  name: walk1_subject1
+  time: 2026-02-16-00-00-00
+  iter: 30000

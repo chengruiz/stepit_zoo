@@ -1,0 +1,26 @@
+field:
+  - name: "target_joint_pos"
+    key: "joint_pos"
+    size: 29
+  - name: "target_joint_vel"
+    key: "joint_vel"
+    size: 29
+  - name: "whole_body_target_ori"
+    key: "body_quat_w"
+    size: 120
+
+body_names:
+  - pelvis: 0
+  - left_hip_roll_link: 4
+  - left_knee_link: 10
+  - left_ankle_roll_link: 18
+  - right_hip_roll_link: 5
+  - right_knee_link: 11
+  - right_ankle_roll_link: 19
+  - torso_link: 9
+  - left_shoulder_roll_link: 16
+  - left_elbow_link: 22
+  - left_wrist_yaw_link: 28
+  - right_shoulder_roll_link: 17
+  - right_elbow_link: 23
+  - right_wrist_yaw_link: 29
