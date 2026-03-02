@@ -1,4 +1,4 @@
-ops:
+operators:
   - type: "affine"
     field: "ang_vel"
     scale: 0.25
