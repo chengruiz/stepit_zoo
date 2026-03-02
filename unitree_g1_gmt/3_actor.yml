@@ -1,0 +1,20 @@
+model_path: assets/pretrained.pt
+nnrt_factory: torchjit
+
+input_shapes:
+  - [ 1, 2154 ]
+input_names:
+  - obs
+output_names:
+  - actions
+
+input_field:
+  obs:
+    - { name: mimic_obs,                  size: 600  }
+    - { name: proprio_obs_current,        size: 74   }
+    - { name: proprio_obs_history_past20, size: 1480 }
+
+output_field:
+  actions: { name: action_controlled_joints, size: 23 }
+
+assert_all_finite: true

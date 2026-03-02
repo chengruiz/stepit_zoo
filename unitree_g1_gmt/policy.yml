@@ -1,0 +1,43 @@
+control_freq: 50
+name: gmt_pretrained_g1
+trusted: true
+tailored: g1
+
+actuator:
+  type: position
+  parameters:
+    - { Kp: 100.0, Kd: 2.0, bias: -0.2, scale: 0.5, }  # left_hip_pitch_joint
+    - { Kp: 100.0, Kd: 2.0, bias: 0.0,  scale: 0.5, }  # left_hip_roll_joint
+    - { Kp: 100.0, Kd: 2.0, bias: 0.0,  scale: 0.5, }  # left_hip_yaw_joint
+    - { Kp: 150.0, Kd: 4.0, bias: 0.4,  scale: 0.5, }  # left_knee_joint
+    - { Kp: 40.0,  Kd: 2.0, bias: -0.2, scale: 0.5, }  # left_ankle_pitch_joint
+    - { Kp: 40.0,  Kd: 2.0, bias: 0.0,  scale: 0.5, }  # left_ankle_roll_joint
+    - { Kp: 100.0, Kd: 2.0, bias: -0.2, scale: 0.5, }  # right_hip_pitch_joint
+    - { Kp: 100.0, Kd: 2.0, bias: 0.0,  scale: 0.5, }  # right_hip_roll_joint
+    - { Kp: 100.0, Kd: 2.0, bias: 0.0,  scale: 0.5, }  # right_hip_yaw_joint
+    - { Kp: 150.0, Kd: 4.0, bias: 0.4,  scale: 0.5, }  # right_knee_joint
+    - { Kp: 40.0,  Kd: 2.0, bias: -0.2, scale: 0.5, }  # right_ankle_pitch_joint
+    - { Kp: 40.0,  Kd: 2.0, bias: 0.0,  scale: 0.5, }  # right_ankle_roll_joint
+    - { Kp: 150.0, Kd: 4.0, bias: 0.0,  scale: 0.5, }  # waist_yaw_joint
+    - { Kp: 150.0, Kd: 4.0, bias: 0.0,  scale: 0.5, }  # waist_roll_joint
+    - { Kp: 150.0, Kd: 4.0, bias: 0.0,  scale: 0.5, }  # waist_pitch_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # left_shoulder_pitch_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.4,  scale: 0.5, }  # left_shoulder_roll_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # left_shoulder_yaw_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 1.2,  scale: 0.5, }  # left_elbow_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # left_wrist_roll_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # left_wrist_pitch_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # left_wrist_yaw_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # right_shoulder_pitch_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: -0.4, scale: 0.5, }  # right_shoulder_roll_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # right_shoulder_yaw_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 1.2,  scale: 0.5, }  # right_elbow_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # right_wrist_roll_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # right_wrist_pitch_joint
+    - { Kp: 40.0,  Kd: 5.0, bias: 0.0,  scale: 0.5, }  # right_wrist_yaw_joint
+
+module:
+  - 1_motion_trajectory@motion_trajectory
+  - 2_pre_field_ops@field_ops
+  - 3_actor@actor
+  - 4_post_field_ops@field_ops

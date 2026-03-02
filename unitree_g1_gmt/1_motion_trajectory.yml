@@ -1,0 +1,6 @@
+npz_filename: "assets/motions/basic_walk.npz"
+
+field:
+  - name: "mimic_obs"
+    key: "mimic_obs"
+    size: 600

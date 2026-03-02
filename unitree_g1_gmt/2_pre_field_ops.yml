@@ -1,0 +1,83 @@
+operators:
+  - type: slice
+    source: joint_pos
+    target: controlled_joint_pos
+    indices: [
+      0, 1, 2, 3, 4, 5,
+      6, 7, 8, 9, 10, 11,
+      12, 13, 14,
+      15, 16, 17, 18,
+      22, 23, 24, 25,
+    ]
+
+  - type: slice
+    source: joint_vel
+    target: controlled_joint_vel
+    indices: [
+      0, 1, 2, 3, 4, 5,
+      6, 7, 8, 9, 10, 11,
+      12, 13, 14,
+      15, 16, 17, 18,
+      22, 23, 24, 25,
+    ]
+
+  - type: slice
+    source: last_action
+    target: controlled_last_action
+    indices: [
+      0, 1, 2, 3, 4, 5,
+      6, 7, 8, 9, 10, 11,
+      12, 13, 14,
+      15, 16, 17, 18,
+      22, 23, 24, 25,
+    ]
+
+  - type: affine
+    field: ang_vel
+    scale: 0.25
+
+  - type: affine
+    source: controlled_joint_pos
+    target: controlled_joint_pos_centered
+    bias: [
+      0.2, 0.0, 0.0, -0.4, 0.2, 0.0,
+      0.2, 0.0, 0.0, -0.4, 0.2, 0.0,
+      0.0, 0.0, 0.0,
+      0.0, -0.4, 0.0, -1.2,
+      0.0, 0.4, 0.0, -1.2,
+    ]
+
+  - type: masked_fill
+    source: controlled_joint_vel
+    target: controlled_joint_vel_ankle_masked
+    indices: [ 4, 5, 10, 11 ]
+    value: 0.0
+
+  - type: affine
+    source: controlled_joint_vel_ankle_masked
+    target: controlled_joint_vel_scaled
+    scale: 0.05
+
+  - type: concat
+    target: proprio_obs_current
+    sources:
+      - ang_vel
+      - roll_pitch
+      - controlled_joint_pos_centered
+      - controlled_joint_vel_scaled
+      - controlled_last_action
+
+  - type: history
+    source: proprio_obs_current
+    target: proprio_obs_history_past20
+    history_len: 20
+    newest_first: false
+    include_current_frame: false
+
+  - type: const
+    field: action_left_wrist_padding
+    value: [ 0.0, 0.0, 0.0 ]
+
+  - type: const
+    field: action_right_wrist_padding
+    value: [ 0.0, 0.0, 0.0 ]

@@ -1,0 +1,25 @@
+operators:
+  - type: split
+    source: action_controlled_joints
+    targets:
+      - name: action_left_leg
+        size: 6
+      - name: action_right_leg
+        size: 6
+      - name: action_waist
+        size: 3
+      - name: action_left_arm
+        size: 4
+      - name: action_right_arm
+        size: 4
+
+  - type: concat
+    target: action
+    sources:
+      - action_left_leg
+      - action_right_leg
+      - action_waist
+      - action_left_arm
+      - action_left_wrist_padding
+      - action_right_arm
+      - action_right_wrist_padding
