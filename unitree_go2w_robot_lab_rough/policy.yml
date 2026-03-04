@@ -1,0 +1,38 @@
+control_freq: 50
+name: unitree_go2w_robot_lab_rough
+trusted: true
+tailored: go2w
+
+actuator:
+  type: hybrid
+  parameters:
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.0,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.8,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: -1.5, scale: 0.25  }
+
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.0,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.8,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: -1.5, scale: 0.25  }
+
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.0,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.8,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: -1.5, scale: 0.25  }
+
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.0,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: 0.8,  scale: 0.125 }
+    - { mode: position, Kp: 25.0, Kd: 0.5, bias: -1.5, scale: 0.25  }
+
+    - { mode: velocity, Kp: 0.0,  Kd: 0.5, bias: 0.0,  scale: 5.0  }
+    - { mode: velocity, Kp: 0.0,  Kd: 0.5, bias: 0.0,  scale: 5.0  }
+    - { mode: velocity, Kp: 0.0,  Kd: 0.5, bias: 0.0,  scale: 5.0  }
+    - { mode: velocity, Kp: 0.0,  Kd: 0.5, bias: 0.0,  scale: 5.0  }
+
+modules:
+  - field_ops
+  - actor
+
+run:
+  task: RobotLab-Isaac-Velocity-Rough-Unitree-Go2W-v0
+  name: v2.3.2
+  time: 2026-03-04-00-00-00
+  iter: 20000

@@ -1,0 +1,24 @@
+operators:
+  - type: "affine"
+    field: "ang_vel"
+    scale: 0.25
+
+  - type: "affine"
+    field: "joint_pos"
+    bias: [
+      0.0, -0.8, 1.5,
+      0.0, -0.8, 1.5,
+      0.0, -0.8, 1.5,
+      0.0, -0.8, 1.5,
+      0.0, 0.0, 0.0, 0.0,
+    ]
+
+  - type: "masked_fill"
+    field: "joint_pos"
+    start: 12
+    end: 16
+    value: 0.0
+
+  - type: "affine"
+    field: "joint_vel"
+    scale: 0.05
