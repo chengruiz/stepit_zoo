@@ -1,3 +1,5 @@
+dataloader_factory: "npz"
+
 field:
   - name: "target_joint_pos"
     key: "joint_pos"

@@ -1,4 +1,5 @@
-npz_filename: "assets/motions/basic_walk.npz"
+path: "assets/motions/basic_walk.npz"
+dataloader_factory: "npz"
 
 field:
   - name: "mimic_obs"
