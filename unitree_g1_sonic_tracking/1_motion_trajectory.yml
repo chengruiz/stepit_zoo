@@ -1,0 +1,19 @@
+path: "assets/reference_motion/dance_in_da_party_001__A464"
+dataloader_factory: "csv"
+
+field:
+  - name: "motion_joint_positions_10frame_step5"
+    key: "joint_pos"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    size: 290
+
+  - name: "motion_joint_velocities_10frame_step5"
+    key: "joint_vel"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    size: 290
+
+  - name: "motion_root_quat_10frame_step5"
+    key: "body_quat"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    indices: [ 0, 1, 2, 3 ]
+    size: 40

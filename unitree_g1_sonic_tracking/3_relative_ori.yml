@@ -1,0 +1,3 @@
+current_ori_name: base_global_ori
+target_ori_name: aligned_target_ori
+rotation_6d_order: row_major

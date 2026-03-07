@@ -1,0 +1,52 @@
+operators:
+  - type: affine
+    source: joint_pos
+    target: joint_pos_gr00t_centered
+    mean: [
+      -0.312000, -0.312000, 0.000000, 0.000000, 0.000000, 0.000000,
+      0.000000, 0.000000, 0.000000, 0.669000, 0.669000, 0.200000,
+      0.200000, -0.363000, -0.363000, 0.200000, -0.200000, 0.000000,
+      0.000000, 0.000000, 0.000000, 0.600000, 0.600000, 0.000000,
+      0.000000, 0.000000, 0.000000, 0.000000, 0.000000,
+    ]
+
+  - type: history
+    source: ang_vel
+    target: his_base_angular_velocity_10frame_step1
+    history_len: 10
+    newest_first: false
+    include_current_frame: true
+    default_value: 0.0
+
+  - type: history
+    source: joint_pos_gr00t_centered
+    target: his_body_joint_positions_10frame_step1
+    history_len: 10
+    newest_first: false
+    include_current_frame: true
+    default_value: 0.0
+
+  - type: history
+    source: joint_vel
+    target: his_body_joint_velocities_10frame_step1
+    history_len: 10
+    newest_first: false
+    include_current_frame: true
+    default_value: 0.0
+
+  - type: history
+    source: action
+    target: his_last_actions_10frame_step1
+    source_size: 29
+    history_len: 10
+    newest_first: false
+    include_current_frame: false
+    default_value: 0.0
+
+  - type: history
+    source: gravity
+    target: his_gravity_dir_10frame_step1
+    history_len: 10
+    newest_first: false
+    include_current_frame: true
+    default_value: 0.0

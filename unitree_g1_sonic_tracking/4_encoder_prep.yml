@@ -1,0 +1,58 @@
+operators:
+  - type: const
+    target: encoder_mode_4
+    value: [ 0.0, 0.0, 0.0, 0.0 ]
+
+  - type: copy
+    source: relative_ori_6d
+    target: motion_anchor_orientation_10frame_step5
+
+  - type: const
+    target: motion_root_z_position_10frame_step5
+    value: 0.0
+    size: 10
+
+  - type: const
+    target: motion_root_z_position
+    value: 0.0
+    size: 1
+
+  - type: const
+    target: motion_anchor_orientation
+    value: 0.0
+    size: 6
+
+  - type: const
+    target: motion_joint_positions_lowerbody_10frame_step5
+    value: 0.0
+    size: 120
+
+  - type: const
+    target: motion_joint_velocities_lowerbody_10frame_step5
+    value: 0.0
+    size: 120
+
+  - type: const
+    target: vr_3point_local_target
+    value: 0.0
+    size: 9
+
+  - type: const
+    target: vr_3point_local_orn_target
+    value: 0.0
+    size: 12
+
+  - type: const
+    target: smpl_joints_10frame_step1
+    value: 0.0
+    size: 720
+
+  - type: const
+    target: smpl_anchor_orientation_10frame_step1
+    value: 0.0
+    size: 60
+
+  - type: const
+    target: motion_joint_positions_wrists_10frame_step1
+    value: 0.0
+    size: 60

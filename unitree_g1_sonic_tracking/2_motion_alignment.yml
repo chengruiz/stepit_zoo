@@ -1,0 +1,4 @@
+current_ori_name: base_global_ori
+reference_index: 0
+target_pos_name: ""
+target_ori_name: motion_root_quat_10frame_step5

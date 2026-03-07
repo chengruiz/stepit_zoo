@@ -1,0 +1,49 @@
+control_freq: 50
+name: gr00t_tracking_g1_bfs
+trusted: false
+tailored: g1_bfs
+
+actuator:
+  type: position
+  parameters:
+    - { Kp: 99.098428, Kd: 6.308802, bias: -0.312000, scale: 0.350661, }  # left_hip_pitch_joint
+    - { Kp: 99.098428, Kd: 6.308802, bias: -0.312000, scale: 0.350661, }  # right_hip_pitch_joint
+    - { Kp: 40.179238, Kd: 2.557890, bias: 0.000000,  scale: 0.547546, }  # waist_yaw_joint
+    - { Kp: 99.098428, Kd: 6.308802, bias: 0.000000,  scale: 0.350661, }  # left_hip_roll_joint
+    - { Kp: 99.098428, Kd: 6.308802, bias: 0.000000,  scale: 0.350661, }  # right_hip_roll_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: 0.000000,  scale: 0.438577, }  # waist_roll_joint
+    - { Kp: 40.179238, Kd: 2.557890, bias: 0.000000,  scale: 0.547546, }  # left_hip_yaw_joint
+    - { Kp: 40.179238, Kd: 2.557890, bias: 0.000000,  scale: 0.547546, }  # right_hip_yaw_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: 0.000000,  scale: 0.438577, }  # waist_pitch_joint
+    - { Kp: 99.098428, Kd: 6.308802, bias: 0.669000,  scale: 0.350661, }  # left_knee_joint
+    - { Kp: 99.098428, Kd: 6.308802, bias: 0.669000,  scale: 0.350661, }  # right_knee_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.200000,  scale: 0.438577, }  # left_shoulder_pitch_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.200000,  scale: 0.438577, }  # right_shoulder_pitch_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: -0.363000, scale: 0.438577, }  # left_ankle_pitch_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: -0.363000, scale: 0.438577, }  # right_ankle_pitch_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.200000,  scale: 0.438577, }  # left_shoulder_roll_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: -0.200000, scale: 0.438577, }  # right_shoulder_roll_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: 0.000000,  scale: 0.438577, }  # left_ankle_roll_joint
+    - { Kp: 28.501246, Kd: 1.814446, bias: 0.000000,  scale: 0.438577, }  # right_ankle_roll_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.000000,  scale: 0.438577, }  # left_shoulder_yaw_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.000000,  scale: 0.438577, }  # right_shoulder_yaw_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.600000,  scale: 0.438577, }  # left_elbow_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.600000,  scale: 0.438577, }  # right_elbow_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.000000,  scale: 0.438577, }  # left_wrist_roll_joint
+    - { Kp: 14.250623, Kd: 0.907223, bias: 0.000000,  scale: 0.438577, }  # right_wrist_roll_joint
+    - { Kp: 16.778327, Kd: 1.068142, bias: 0.000000,  scale: 0.074501, }  # left_wrist_pitch_joint
+    - { Kp: 16.778327, Kd: 1.068142, bias: 0.000000,  scale: 0.074501, }  # right_wrist_pitch_joint
+    - { Kp: 16.778327, Kd: 1.068142, bias: 0.000000,  scale: 0.074501, }  # left_wrist_yaw_joint
+    - { Kp: 16.778327, Kd: 1.068142, bias: 0.000000,  scale: 0.074501, }  # right_wrist_yaw_joint
+module:
+  - 1_motion_trajectory@motion_trajectory
+  - 2_motion_alignment@motion_alignment
+  - 3_relative_ori@relative_ori
+  - 4_encoder_prep@field_ops
+  - 5_encoder@neuro
+  - 6_decoder_prep@field_ops
+  - 7_decoder@neuro
+
+run:
+  task: GR00T
+  name: SONIC-Tracking
