@@ -1,0 +1,16 @@
+model_path: actor.onnx
+
+input_fields:
+  - { name: obs_frame,   size: 127  }
+  - { name: obs_history, size: 1270 }
+  - { name: mimic_obs,   size: 35   }
+
+output_fields:
+  - { name: action,      size: 29   }
+
+assert_all_finite: true
+run:
+  task: twist2_g1_real
+  name: twist2_1017_20k
+  time: 2026-03-13-00-00-00
+  iter: 20000

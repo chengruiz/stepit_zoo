@@ -1,0 +1,36 @@
+operators:
+  - type: "masked_fill"
+    source: "joint_vel"
+    target: "joint_vel_masked"
+    indices: [ 4, 5, 10, 11 ]
+    value: 0.0
+
+  - type: "affine"
+    field: "ang_vel"
+    scale: 0.25
+
+  - type: "affine"
+    field: "joint_pos"
+    bias: [
+      0.2, 0.0, 0.0, -0.4, 0.2, 0.0,
+      0.2, 0.0, 0.0, -0.4, 0.2, 0.0,
+      0.0, 0.0, 0.0,
+      0.0, -0.4, 0.0, -1.2, 0.0, 0.0, 0.0,
+      0.0, 0.4, 0.0, -1.2, 0.0, 0.0, 0.0
+    ]
+
+  - type: "affine"
+    field: "joint_vel_masked"
+    scale: 0.05
+
+  - type: "concat"
+    sources: [ "mimic_obs", "ang_vel", "roll_pitch", "joint_pos", "joint_vel_masked", "last_action" ]
+    target: "obs_frame"
+
+  - type: "history"
+    source: "obs_frame"
+    target: "obs_history"
+    history_len: 10
+    newest_first: false
+    include_current_frame: false
+    default_value: 0.0

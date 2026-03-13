@@ -1,0 +1,7 @@
+path: "motion_trajectory.npz"
+dataloader_factory: "npz"
+
+field:
+  - name: "mimic_obs"
+    key: "mimic_obs"
+    size: 35
