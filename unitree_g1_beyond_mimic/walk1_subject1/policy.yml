@@ -38,7 +38,7 @@ actuator:
 
 module:
   - 1_forward_kinematics@forward_kinematics  # updates whole-body local / global pose
-  - 2_motion_trajectory@motion_trajectory    # reads motion trajectory from npz file
+  - 2_motion_player@motion_player            # reads motion trajectory from npz file
   - 3_field_ops@field_ops                    # normalizes joint positions and get observations
   - 4_motion_alignment@motion_alignment      # aligns the motion frame with the robot frame
   - 5_relative_pose/ori@relative_ori         # computes the relative orientation between target and current values

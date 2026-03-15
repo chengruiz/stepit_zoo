@@ -37,7 +37,7 @@ actuator:
     - { Kp: 20.0,  Kd: 1.0, bias: 0.0,  scale: 0.5 }  # right_wrist_yaw_joint
 
 modules:
-  - 1_motion_trajectory@motion_trajectory
+  - 1_motion_player@motion_player
   - 2_field_ops@field_ops
   - 3_actor@actor
 

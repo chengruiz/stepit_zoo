@@ -1,0 +1,32 @@
+path: 
+  - assets/motions/dance_in_da_party_001__A464
+  - assets/motions/dance_in_da_party_001__A464_M
+  - assets/motions/forward_lunge_R_001__A359_M
+  - assets/motions/macarena_001__A545
+  - assets/motions/macarena_001__A545_M
+  - assets/motions/neutral_kick_R_001__A543
+  - assets/motions/neutral_kick_R_001__A543_M
+  - assets/motions/squat_001__A359
+  - assets/motions/tired_forward_lunge_R_001__A359_M
+  - assets/motions/tired_one_leg_jumping_R_001__A359
+  - assets/motions/tired_one_leg_jumping_R_001__A359_M
+  - assets/motions/walking_quip_360_R_002__A428
+  - assets/motions/walking_quip_360_R_002__A428_M
+dataloader_factory: "csv"
+
+field:
+  - name: "motion_joint_positions_10frame_step5"
+    key: "joint_pos"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    size: 290
+
+  - name: "motion_joint_velocities_10frame_step5"
+    key: "joint_vel"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    size: 290
+
+  - name: "motion_root_quat_10frame_step5"
+    key: "body_quat"
+    offsets: [ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 ]
+    indices: [ 0, 1, 2, 3 ]
+    size: 40

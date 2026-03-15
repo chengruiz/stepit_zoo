@@ -1,0 +1,15 @@
+path:
+  - assets/motions/airkick_stand.npz
+  - assets/motions/basic_walk.npz
+  - assets/motions/crouchwalk_stand.npz
+  - assets/motions/dance_waltz.npz
+  - assets/motions/dance.npz
+  - assets/motions/kick_walk.npz
+  - assets/motions/squat.npz
+  - assets/motions/walk_stand.npz
+dataloader_factory: "npz"
+
+field:
+  - name: "mimic_obs"
+    key: "mimic_obs"
+    size: 600

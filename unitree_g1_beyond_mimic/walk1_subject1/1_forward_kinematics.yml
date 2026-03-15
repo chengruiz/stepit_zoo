@@ -1,4 +1,4 @@
-urdf_filename: "g1.urdf"
+urdf_path: "g1.urdf"
 
 body_names:
   - "torso_link"

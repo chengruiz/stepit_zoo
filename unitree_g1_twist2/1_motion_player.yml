@@ -1,4 +1,4 @@
-path: "motion_trajectory.npz"
+path: "motion.npz"
 dataloader_factory: "npz"
 
 field:
