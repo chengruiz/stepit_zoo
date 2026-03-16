@@ -38,11 +38,12 @@ actuator:
 
 modules:
   - 1_motion_player@motion_player
-  - 2_field_ops@field_ops
-  - 3_actor@actor
+  - 2_motion_alignment@motion_alignment
+  - 3_field_ops@field_ops
+  - 4_actor@actor
 
 run:
   task: twist2_g1_real
-  name: twist2_1017_20k
+  name: twist2_1017_25k
   time: 2026-03-13-00-00-00
-  iter: 20000
+  iter: 25000
