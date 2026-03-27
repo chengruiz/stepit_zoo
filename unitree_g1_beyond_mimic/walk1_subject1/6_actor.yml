@@ -7,7 +7,8 @@ input_field:
   - { name: joint_pos,         size: 29 }
   - { name: joint_vel,         size: 29 }
   - { name: last_action,       size: 29 }
-  time_step: {}
+  time_step:
+  - { name: step_count,        size: 1  }
 
 output_field:
   actions:        { name: action }
